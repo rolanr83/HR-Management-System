@@ -8,8 +8,11 @@ namespace HR_Management_System.Models
 {
     public class QualificationVM
     {
+        public int Id { get; set; }
         [Required]
         public string Name { get; set; }
+        [Required]
+        [Display(Name="Date Completed")]
         public DateTime DateCompleted { get; set; }
     }
 }

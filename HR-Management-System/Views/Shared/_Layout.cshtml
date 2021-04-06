@@ -22,17 +22,20 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="">Employee Records</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="">Manage Employee Records</a>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Manage
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenueLink">
-                                <a class="dropdown-item text-dark" href="#">Employees Listing</a>
-                                <a class="dropdown-item text-dark" href="#">Add Employee</a>
+                                <a class="dropdown-item text-dark" asp-controller="Department" asp-action="Index" >Departments</a>
+                                <a class="dropdown-item text-dark" asp-controller="Qualification" asp-action="Index">Qualification</a>
+                                <a class="dropdown-item text-dark" asp-controller="RelationshipType" asp-action="Index">RelationshipType</a>
+                                @*<a class="dropdown-item text-dark" href="#">Add Employee</a>
                                 <a class="dropdown-item text-dark" href="#">Edit Employee</a>
                                 <a class="dropdown-item text-dark" href="#">Remove Record</a>
+                                <a class="dropdown-item text-dark" href="#">View Employees</a>*@
                             </div>
                         </li>
                     </ul>

@@ -8,6 +8,7 @@ namespace HR_Management_System.Models
 {
     public class RelationshipTypeVM
     {
+        public int Id { get; set; }
         [Required]
         public string Name { get; set; }
     }

@@ -8,5 +8,6 @@ namespace HR_Management_System.Contracts
 {
     public interface IQualificationRepository :IRepositoryBase<Qualification>
     {
+        ICollection<Qualification> GetQualificationType(int id);
     }
 }

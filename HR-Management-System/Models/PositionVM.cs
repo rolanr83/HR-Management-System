@@ -9,13 +9,14 @@ namespace HR_Management_System.Models
 {
     public class PositionVM
     {
+        public int Id { get; set; }
         [Required]
         public string Post { get; set; }
         [Required]
         public DateTime DateStarted { get; set; }
+
         public DepartmentVM Department { get; set; }
         public int DepartmentId { get; set; }
-
         public IEnumerable<SelectListItem> Departments { get; set; }
     }
 }

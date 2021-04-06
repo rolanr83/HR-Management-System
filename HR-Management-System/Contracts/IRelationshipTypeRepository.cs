@@ -8,5 +8,6 @@ namespace HR_Management_System.Contracts
 {
     public interface IRelationshipTypeRepository : IRepositoryBase<RelationshipType>
     {
+        ICollection<RelationshipType> GetRelationshipType(int id);
     }
 }

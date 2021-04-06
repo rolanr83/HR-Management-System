@@ -9,9 +9,11 @@ namespace HR_Management_System.Models
 {
     public class EducationVM
     {
+        public int Id { get; set; }
         [Required]
         public string Institution { get; set; }
         public DateTime DateStarted { get; set; }
+       
         public QualificationVM Qualification { get; set; }
         public int QualificationId { get; set; }
 

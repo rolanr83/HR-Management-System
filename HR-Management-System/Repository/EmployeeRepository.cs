@@ -37,6 +37,12 @@ namespace HR_Management_System.Repository
             return _db.Employees.Find();
         }
 
+        public bool isExists(int id)
+        {
+            var exist = _db.Employees.Any(q => q.Id == id);
+            return exist;
+        }
+
         public bool Save()
         {
             var changes = _db.SaveChanges();

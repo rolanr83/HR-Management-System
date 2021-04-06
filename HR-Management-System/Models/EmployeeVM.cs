@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Mvc.Rendering;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -8,7 +9,6 @@ namespace HR_Management_System.Models
 {
     public class EmployeeVM
     {
-        [Key]
         public int Id { get; set; }
         [Required]
         public string FirstName { get; set; }
@@ -46,12 +46,18 @@ namespace HR_Management_System.Models
         [Required]
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
+
         public EducationVM Education { get; set; }
         public int EducationId { get; set; }
+        public IEnumerable<SelectListItem> EducationVM { get; set; }
+
         public PositionVM Position { get; set; }
         public int PositionId { get; set; }
+        public IEnumerable<SelectListItem> PositionVM { get; set; }
+
         public EmergencyContactVM EmergencyContact { get; set; }
         public int EmergencyContactId { get; set; }
+        public IEnumerable<SelectListItem> EmergencyContactVM { get; set; }
 
 
     }

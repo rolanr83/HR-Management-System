@@ -33,7 +33,6 @@ namespace HR_Management_System
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
-            services.AddDatabaseDeveloperPageExceptionFilter();
 
             services.AddScoped<IDepartmentRepository, DepartmentRepository>();
             services.AddScoped<IEducationRepository, EducationRepository>();
@@ -43,8 +42,8 @@ namespace HR_Management_System
             services.AddScoped<IQualificationRepository, QualificationRepository>();
             services.AddScoped<IRelationshipTypeRepository, RelationshipRepository>();
 
+            services.AddDatabaseDeveloperPageExceptionFilter();                     
             services.AddAutoMapper(typeof(Maps));
-
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddControllersWithViews();

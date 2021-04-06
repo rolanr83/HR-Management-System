@@ -32,9 +32,20 @@ namespace HR_Management_System.Repository
             return _db.Qualifications.ToList();
         }
 
-        public Qualification FindById(int id)
+        public Qualification FindById(int id)// needs to be fix
         {
-            return _db.Qualifications.Find();
+            return _db.Qualifications.Find(id);
+        }
+
+        public ICollection<Qualification> GetQualificationType(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool isExists(int id)
+        {
+            var exist = _db.Qualifications.Any(q => q.Id == id);
+            return exist;
         }
 
         public bool Save()

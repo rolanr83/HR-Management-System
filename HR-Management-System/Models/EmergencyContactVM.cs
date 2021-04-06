@@ -9,10 +9,12 @@ namespace HR_Management_System.Models
 {
     public class EmergencyContactVM
     {
+        public int Id { get; set; }
         [Required]
         public string Name { get; set; }
         [Required]
         public string ContactNumber { get; set; }
+        
         public RelationshipTypeVM RelationshipType { get; set; }
         public int RelationshipTypeId { get; set; }
 
