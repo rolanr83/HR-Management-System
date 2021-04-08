@@ -25,15 +25,21 @@ namespace HR_Management_System.Controllers
         // GET: QualificationController
         public ActionResult Index()
         {
-            var Qualifications = _repo.FindAll().ToList();
-            var model = _mapper.Map<List<Qualification>, List<QualificationVM>>(Qualifications);
+            var Qualification = _repo.FindAll().ToList();
+            var model = _mapper.Map<List<Qualification>, List<QualificationVM>>(Qualification);
             return View(model);
         }
 
         // GET: QualificationController/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            if (!_repo.isExists(id))
+            {
+                return NotFound();
+            }
+            var Qualification = _repo.FindById(id);
+            var model = _mapper.Map<QualificationVM>(Qualification);
+            return View(model);
         }
 
         // GET: QualificationController/Create
@@ -114,16 +120,36 @@ namespace HR_Management_System.Controllers
         // GET: QualificationController/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            var qualification = _repo.FindById(id);
+            if (qualification == null)
+            {
+                return NotFound();
+            }
+            var isSuccess = _repo.Delete(qualification);
+            if (!isSuccess)
+            {
+                return BadRequest();
+            }
+            return RedirectToAction(nameof(Index));
         }
 
         // POST: QualificationController/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
+        public ActionResult Delete(int id, QualificationVM model)
         {
             try
             {
+                var qualification = _repo.FindById(id);
+                if (qualification == null)
+                {
+                    return NotFound();
+                }
+                var isSuccess = _repo.Delete(qualification);
+                if (!isSuccess)
+                {
+                    return View(model);
+                }
                 return RedirectToAction(nameof(Index));
             }
             catch
