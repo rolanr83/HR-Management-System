@@ -2,6 +2,7 @@
 using HR_Management_System.Contracts;
 using HR_Management_System.Data;
 using HR_Management_System.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -11,6 +12,7 @@ using System.Threading.Tasks;
 
 namespace HR_Management_System.Controllers
 {
+    [Authorize(Roles = "Administrator")]
     public class RelationshipTypeController : Controller
     {
         private readonly IRelationshipTypeRepository _repo;
@@ -21,7 +23,7 @@ namespace HR_Management_System.Controllers
             _repo = repo;
             _mapper = mapper;
         }
-
+        
         // GET: RelationshipTypeController
         public ActionResult Index()
         {
