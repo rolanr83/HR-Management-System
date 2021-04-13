@@ -11,9 +11,13 @@ namespace HR_Management_System.Models
     {
         public int Id { get; set; }
         [Required]
+        [Display(Name ="First Name")]
         public string FirstName { get; set; }
         [Required]
+        [Display(Name = "Middle Name")]
         public string MiddleName { get; set; }
+        [Required]
+        [Display(Name = "Last Name")]
         public string LastName { get; set; }
         [Required]
         public string Gender { get; set; }
@@ -22,12 +26,17 @@ namespace HR_Management_System.Models
         [Required]
         public string NIS { get; set; }
         [Required]
+        [Display(Name = "Date of Birth")]
         public DateTime DateOfBirth { get; set; }
         [Required]
+        [Display(Name = "Marital Status")]
         public string MaritalStatus { get; set; }
         [Required]
+        [Display(Name = "Address 1")]
         public string Address1 { get; set; }
+        [Display(Name = "Address 2")]
         public string Address2 { get; set; }
+        [Display(Name = "Postal Code")]
         public string PostalCode { get; set; }
         [Required]
         public string Parish { get; set; }
@@ -35,8 +44,10 @@ namespace HR_Management_System.Models
         public string Country { get; set; }
         public string HomeNumber { get; set; }
         [Required]
+        [Display(Name = "Mobile Number")]
         public string MobileNumber { get; set; }
         [Required]
+        [Display(Name = "Email Address")]
         public string EmailAddress { get; set; }
         //public string EmployeementStatus { get; set; }
         [Required]
