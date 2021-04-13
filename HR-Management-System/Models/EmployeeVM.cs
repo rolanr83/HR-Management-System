@@ -11,7 +11,7 @@ namespace HR_Management_System.Models
     {
         public int Id { get; set; }
         [Required]
-        [Display(Name ="First Name")]
+        [Display(Name = "First Name")]
         public string FirstName { get; set; }
         [Required]
         [Display(Name = "Middle Name")]
@@ -69,7 +69,5 @@ namespace HR_Management_System.Models
         public EmergencyContactVM EmergencyContact { get; set; }
         public int EmergencyContactId { get; set; }
         public IEnumerable<SelectListItem> EmergencyContactVM { get; set; }
-
-
     }
 }
