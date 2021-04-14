@@ -32,7 +32,13 @@ namespace HR_Management_System.Controllers
         // GET: EmployeeController/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            if (!_repo.isExists(id))
+            {
+                return NotFound();
+            }
+            var Employees = _repo.FindById(id);
+            var model = _mapper.Map<EmployeeVM>(Employees);
+            return View(model);
         }
 
         // GET: EmployeeController/Create
@@ -44,10 +50,22 @@ namespace HR_Management_System.Controllers
         // POST: EmployeeController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public ActionResult Create(EmployeeVM model)
         {
             try
             {
+                if (!ModelState.IsValid)
+                {
+                    return View(model);
+                }
+                var employee = _mapper.Map<Employee>(model);
+                var isSuccess = _repo.Create(employee);
+
+                if (!isSuccess)
+                {
+                    ModelState.AddModelError("", "Something Went Wrong...");
+                }
+
                 return RedirectToAction(nameof(Index));
             }
             catch
@@ -59,21 +77,42 @@ namespace HR_Management_System.Controllers
         // GET: EmployeeController/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            {
+                if (!_repo.isExists(id))
+                {
+                    return NotFound();
+                }
+                var employee = _repo.FindById(id);
+                var model = _mapper.Map<EmployeeVM>(employee);
+                return View(model);
+            }
         }
 
         // POST: EmployeeController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public ActionResult Edit(EmployeeVM model)
         {
             try
             {
+                if (!ModelState.IsValid)
+                {
+                    return View(model);
+                }
+                var employee = _mapper.Map<Employee>(model);
+                var isSuccess = _repo.Update(employee);
+                if (!isSuccess)
+                {
+                    ModelState.AddModelError("", "Something Went Wrong...");
+                    return View(model);
+                }
+
                 return RedirectToAction(nameof(Index));
             }
             catch
             {
-                return View();
+                ModelState.AddModelError("", "Something Went Wrong...");
+                return View(model);
             }
         }
 
