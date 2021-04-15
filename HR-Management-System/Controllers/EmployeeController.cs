@@ -119,16 +119,36 @@ namespace HR_Management_System.Controllers
         // GET: EmployeeController/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            var employee = _repo.FindById(id);
+            if (employee == null)
+            {
+                return NotFound();
+            }
+            var isSuccess = _repo.Delete(employee);
+            if (!isSuccess)
+            {
+                return BadRequest();
+            }
+            return RedirectToAction(nameof(Index));
         }
 
         // POST: EmployeeController/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
+        public ActionResult Delete(int id, EmployeeVM model)
         {
             try
             {
+                var employee = _repo.FindById(id);
+                if (employee == null)
+                {
+                    return NotFound();
+                }
+                var isSuccess = _repo.Delete(employee);
+                if (!isSuccess)
+                {
+                    return View(model);
+                }
                 return RedirectToAction(nameof(Index));
             }
             catch
