@@ -12,13 +12,10 @@ namespace HR_Management_System.Mappings
     {
         public Maps()
         {
-            //have Trevor explain this more because am a little confused
             CreateMap<Department, DepartmentVM>().ReverseMap();
             CreateMap<Qualification, QualificationVM>().ReverseMap();
             CreateMap<RelationshipType, RelationshipTypeVM>().ReverseMap();
             CreateMap<EmergencyContact, EmergencyContactVM>().ReverseMap();
-            CreateMap<Position, PositionVM>().ReverseMap();
-            CreateMap<Education, EducationVM>().ReverseMap();
             CreateMap<Employee, EmployeeVM>().ReverseMap();
         }
     }

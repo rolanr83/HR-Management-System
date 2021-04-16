@@ -19,7 +19,7 @@ namespace HR_Management_System.Data
         [Required]
         public string Gender { get; set; }
         [Required]
-        public string TRN { get; set; }
+        public int TRN { get; set; }
         public string NIS { get; set; }
         public DateTime DateOfBirth { get; set; }
         public string MaritalStatus { get; set; }
@@ -32,19 +32,21 @@ namespace HR_Management_System.Data
         public string MobileNumber { get; set; }
         public string EmailAddress { get; set; }
         public string EmployeementStatus { get; set; }
-        public string Department { get; set; }
         public string Post { get; set; }
-        public DateTime StartDate { get; set; }
-        public DateTime EndDate { get; set; }
-        [ForeignKey("EducationId")]
-        public Education Education { get; set; }
-        public int EducationId { get; set; }
-        [ForeignKey("PositionId")]
-        public Position Position { get; set; }
-        public int PositionId { get; set; }
+        [ForeignKey("DepartmentId")]
+        public Department Department { get; set; }
+        public int DepartmentId { get; set; }
+        public string Education { get; set; }
+        [ForeignKey("QualificationId")]
+        public Qualification Qualification { get; set; }
+        public int QualificationId { get; set; }
+        public string Emergency { get; set; }
         [ForeignKey("EmergencyContactId")]
         public EmergencyContact EmergencyContact { get; set; }
         public int EmergencyContactId { get; set; }
+        public DateTime StartDate { get; set; }
+        public DateTime EndDate { get; set; }
+                
 
     }
 }

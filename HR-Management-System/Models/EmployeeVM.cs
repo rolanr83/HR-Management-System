@@ -50,13 +50,6 @@ namespace HR_Management_System.Models
         [Display(Name = "Email Address")]      
         public string EmailAddress { get; set; }
         [Required]
-        public string Education { get; set; }
-
-        public QualificationVM Qualification { get; set; }
-        public int QualificationId { get; set; }
-        public IEnumerable<SelectListItem> QualificationVM { get; set; }
-
-        [Required]
         [Display(Name = "Employeement Status")]
         public string EmployeementStatus { get; set; }
        
@@ -66,15 +59,20 @@ namespace HR_Management_System.Models
         public int DepartmentId { get; set; }
         public IEnumerable<SelectListItem> DepartmentVM { get; set; }
 
-        [Required]
-        public DateTime StartDate { get; set; }
-        public DateTime EndDate { get; set; }
+        public string Education { get; set; }
+        public QualificationVM Qualification { get; set; }
+        public int QualificationId { get; set; }
+        public IEnumerable<SelectListItem> QualificationVM { get; set; }
 
-        
-
-
+        public string Emergency { get; set; }
         public EmergencyContactVM EmergencyContact { get; set; }
         public int EmergencyContactId { get; set; }
         public IEnumerable<SelectListItem> EmergencyContactVM { get; set; }
+
+        [Required]
+        public DateTime StartDate { get; set; }
+        public DateTime EndDate { get; set; }
     }
 }
+
+
