@@ -47,24 +47,31 @@ namespace HR_Management_System.Models
         [Display(Name = "Mobile Number")]
         public string MobileNumber { get; set; }
         [Required]
-        [Display(Name = "Email Address")]
+        [Display(Name = "Email Address")]      
         public string EmailAddress { get; set; }
-        //public string EmployeementStatus { get; set; }
         [Required]
-        public string Department { get; set; }
+        public string Education { get; set; }
+
+        public QualificationVM Qualification { get; set; }
+        public int QualificationId { get; set; }
+        public IEnumerable<SelectListItem> QualificationVM { get; set; }
+
+        [Required]
+        [Display(Name = "Employeement Status")]
+        public string EmployeementStatus { get; set; }
+       
         [Required]
         public string Post { get; set; }
+        public DepartmentVM Department { get; set; }
+        public int DepartmentId { get; set; }
+        public IEnumerable<SelectListItem> DepartmentVM { get; set; }
+
         [Required]
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
 
-        public EducationVM Education { get; set; }
-        public int EducationId { get; set; }
-        public IEnumerable<SelectListItem> EducationVM { get; set; }
+        
 
-        public PositionVM Position { get; set; }
-        public int PositionId { get; set; }
-        public IEnumerable<SelectListItem> PositionVM { get; set; }
 
         public EmergencyContactVM EmergencyContact { get; set; }
         public int EmergencyContactId { get; set; }

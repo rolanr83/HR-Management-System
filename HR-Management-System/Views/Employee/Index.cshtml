@@ -80,7 +80,7 @@
                 @Html.DisplayNameFor(model => model.Education)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Position)
+                @Html.DisplayNameFor(model => model.Department)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.EmergencyContact)
@@ -140,9 +140,9 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.EmailAddress)
                 </td>
-                @*<td>
+                <td>
                         @Html.DisplayFor(modelItem => item.EmployeementStatus)
-                    </td>*@
+                    </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Department)
                 </td>
@@ -156,10 +156,10 @@
                     @Html.DisplayFor(modelItem => item.EndDate)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Education.Id)
+                    @Html.DisplayFor(modelItem => item.Qualification.Id)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Position.Id)
+                    @Html.DisplayFor(modelItem => item.Department.Id)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.EmergencyContact.Id)
