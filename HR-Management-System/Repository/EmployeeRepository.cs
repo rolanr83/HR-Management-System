@@ -29,7 +29,7 @@ namespace HR_Management_System.Repository
 
         public ICollection<Employee> FindAll()
         {
-            return _db.Employees.ToList(); //fix
+            return _db.Employees.ToList(); 
         }
 
         public Employee FindById(int id)
