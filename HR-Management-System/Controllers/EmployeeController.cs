@@ -2,6 +2,7 @@
 using HR_Management_System.Contracts;
 using HR_Management_System.Data;
 using HR_Management_System.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -11,20 +12,33 @@ using System.Threading.Tasks;
 
 namespace HR_Management_System.Controllers
 {
+    [Authorize(Roles = "Administrator")]
     public class EmployeeController : Controller
     {
-        private readonly IEmployeeRepository _repo;
+        private readonly IDepartmentRepository _departmentrepo;
+        private readonly IQualificationRepository _qualificationrepo;
+        private readonly IRelationshipTypeRepository _relationshiptyperepo;
+        private readonly IEmployeeRepository _employeerepo;
         private readonly IMapper _mapper;
 
-        public EmployeeController(IEmployeeRepository repo, IMapper mapper)
+        public EmployeeController(
+            IDepartmentRepository departmentrepo,
+            IQualificationRepository qualificationrepo,
+            IRelationshipTypeRepository relationshiptyperepo,
+            IEmployeeRepository employeerepo, 
+            IMapper mapper
+            )
         {
-            _repo = repo;
+            _departmentrepo = departmentrepo;
+            _qualificationrepo = qualificationrepo;
+            _relationshiptyperepo = relationshiptyperepo;
+            _employeerepo = employeerepo;
             _mapper = mapper;
         }
         // GET: EmployeeController
         public ActionResult Index()
         {
-            var Employees = _repo.FindAll().ToList();
+            var Employees = _employeerepo.FindAll().ToList();
             var model = _mapper.Map<List<Employee>, List<EmployeeVM>>(Employees);
             return View(model);
         }
@@ -32,17 +46,18 @@ namespace HR_Management_System.Controllers
         // GET: EmployeeController/Details/5
         public ActionResult Details(int id)
         {
-            if (!_repo.isExists(id))
+            if (!_employeerepo.isExists(id))
             {
                 return NotFound();
             }
-            var Employees = _repo.FindById(id);
+            var Employees = _employeerepo.FindById(id);
             var model = _mapper.Map<EmployeeVM>(Employees);
             return View(model);
         }
+        
 
-        // GET: EmployeeController/Create
-        public ActionResult Create()
+// GET: EmployeeController/Create
+public ActionResult Create()
         {
             return View();
         }
@@ -59,7 +74,7 @@ namespace HR_Management_System.Controllers
                     return View(model);
                 }
                 var employee = _mapper.Map<Employee>(model);
-                var isSuccess = _repo.Create(employee);
+                var isSuccess = _employeerepo.Create(employee);
 
                 if (!isSuccess)
                 {
@@ -78,11 +93,11 @@ namespace HR_Management_System.Controllers
         public ActionResult Edit(int id)
         {
             {
-                if (!_repo.isExists(id))
+                if (!_employeerepo.isExists(id))
                 {
                     return NotFound();
                 }
-                var employee = _repo.FindById(id);
+                var employee = _employeerepo.FindById(id);
                 var model = _mapper.Map<EmployeeVM>(employee);
                 return View(model);
             }
@@ -100,7 +115,7 @@ namespace HR_Management_System.Controllers
                     return View(model);
                 }
                 var employee = _mapper.Map<Employee>(model);
-                var isSuccess = _repo.Update(employee);
+                var isSuccess = _employeerepo.Update(employee);
                 if (!isSuccess)
                 {
                     ModelState.AddModelError("", "Something Went Wrong...");
@@ -119,12 +134,12 @@ namespace HR_Management_System.Controllers
         // GET: EmployeeController/Delete/5
         public ActionResult Delete(int id)
         {
-            var employee = _repo.FindById(id);
+            var employee = _employeerepo.FindById(id);
             if (employee == null)
             {
                 return NotFound();
             }
-            var isSuccess = _repo.Delete(employee);
+            var isSuccess = _employeerepo.Delete(employee);
             if (!isSuccess)
             {
                 return BadRequest();
@@ -139,12 +154,12 @@ namespace HR_Management_System.Controllers
         {
             try
             {
-                var employee = _repo.FindById(id);
+                var employee = _employeerepo.FindById(id);
                 if (employee == null)
                 {
                     return NotFound();
                 }
-                var isSuccess = _repo.Delete(employee);
+                var isSuccess = _employeerepo.Delete(employee);
                 if (!isSuccess)
                 {
                     return View(model);
