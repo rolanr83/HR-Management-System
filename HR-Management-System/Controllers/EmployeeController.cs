@@ -1,4 +1,5 @@
-﻿using AutoMapper;
+﻿
+using AutoMapper;
 using HR_Management_System.Contracts;
 using HR_Management_System.Data;
 using HR_Management_System.Models;
