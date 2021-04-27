@@ -72,10 +72,17 @@ public ActionResult Create()
                 Text = q.Name,
                 Value = q.Id.ToString()
             });
+            var qualification = _qualificationrepo.FindAll();
+            var qualificationItems = qualification.Select(q => new SelectListItem
+            {
+                Text = q.Name,
+                Value = q.Id.ToString()
+            });
             var model = new EmployeeVM
             {
                 Department = departmentItems,
-                RelationshipType = relationshiptypeItems
+                RelationshipType = relationshiptypeItems,
+                Qualification = qualificationItems
             };
             return View(model);
         }
@@ -83,11 +90,21 @@ public ActionResult Create()
         // POST: EmployeeController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public ActionResult Create(EmployeeVM model)
         {
             try
             {
-                
+                if (!ModelState.IsValid)
+                {
+                    return View(model);
+                }
+                var employee = _mapper.Map<Employee>(model);
+                var isSuccess = _employeerepo.Create(employee);
+
+                if (!isSuccess)
+                {
+                    ModelState.AddModelError("", "Something Went Wrong...");
+                }
 
                 return RedirectToAction(nameof(Index));
             }

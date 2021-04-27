@@ -135,7 +135,9 @@
             </div>
             <div class="form-group">
                 <label asp-for="QualificationId" class="control-label"></label>
-                <select asp-for="QualificationId" class="form-control" asp-items="ViewBag.QualificationId"></select>
+                @Html.DropDownListFor(q => q.QualificationId, new SelectList(Model.Qualification, "Value", "Text"), "Select department", new { @class = "form-control" })
+                <span asp-validation-for="QualificationId" class="text-danger"></span>
+                @*<select asp-for="QualificationId" class="form-control" asp-items="ViewBag.QualificationId"></select>*@
             </div>
             <div class="form-group">
                 <label asp-for="Emergency" class="control-label"></label>
