@@ -2,6 +2,7 @@
 
 @{
     ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h1>Create</h1>
@@ -104,7 +105,9 @@
             </div>
             <div class="form-group">
                 <label asp-for="DepartmentId" class="control-label"></label>
-                <select asp-for="DepartmentId" class="form-control" asp-items="ViewBag.DepartmentId"></select>
+                @Html.DropDownListFor(q => q.DepartmentId, new SelectList(Model.Department, "Value", "Text"), "Select department", new { @class  = "form-control" } )
+                <span asp-validation-for="Education" class="text-danger"></span>
+                @*<select asp-for="DepartmentId" class="form-control" asp-items="ViewBag.DepartmentId"></select>*@
             </div>
             <div class="form-group">
                 <label asp-for="Education" class="control-label"></label>
@@ -113,7 +116,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="QualificationId" class="control-label"></label>
-                <select asp-for="QualificationId" class="form-control" asp-items="ViewBag.QualificationId"></select>
+                <select asp-for="QualificationId" class ="form-control" asp-items="ViewBag.QualificationId"></select>
             </div>
             <div class="form-group">
                 <label asp-for="Emergency" class="control-label"></label>
@@ -121,8 +124,8 @@
                 <span asp-validation-for="Emergency" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="EmergencyContactId" class="control-label"></label>
-                <select asp-for="EmergencyContactId" class="form-control" asp-items="ViewBag.EmergencyContactId"></select>
+                <label asp-for="RelaionshipTypeId" class="control-label"></label>
+                <select asp-for="RelaionshipTypeId" class ="form-control" asp-items="ViewBag.RelaionshipTypeId"></select>
             </div>
             <div class="form-group">
                 <label asp-for="StartDate" class="control-label"></label>
@@ -135,17 +138,13 @@
                 <span asp-validation-for="EndDate" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary btn-block" />
+                <input type="submit" value="Create" class="btn btn-primary" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a class="btn btn-outline-secondary btn-outline-primary" asp-action="Index">Back to List</a>
+    <a asp-action="Index">Back to List</a>
 </div>
-
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
 

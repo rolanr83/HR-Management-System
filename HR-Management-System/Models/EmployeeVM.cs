@@ -55,23 +55,25 @@ namespace HR_Management_System.Models
        
         [Required]
         public string Post { get; set; }
-        public DepartmentVM Department { get; set; }
+        public IEnumerable<SelectListItem> Department { get; set; }
+        [Display(Name = "Department")]
         public int DepartmentId { get; set; }
-        public IEnumerable<SelectListItem> DepartmentVM { get; set; }
 
         public string Education { get; set; }
-        public QualificationVM Qualification { get; set; }
+        public IEnumerable<SelectListItem> Qualification { get; set; }
+        [Display(Name = "Qualification Type")]
         public int QualificationId { get; set; }
-        public IEnumerable<SelectListItem> QualificationVM { get; set; }
 
         public string Emergency { get; set; }
-        public EmergencyContactVM EmergencyContact { get; set; }
-        public int EmergencyContactId { get; set; }
-        public IEnumerable<SelectListItem> EmergencyContactVM { get; set; }
+        public IEnumerable<SelectListItem> RelationshipType { get; set; }
+        [Display(Name = "Relationship to Employee")]
+        public int RelaionshipTypeId { get; set; }
+        
 
         [Required]
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
+
     }
 }
 

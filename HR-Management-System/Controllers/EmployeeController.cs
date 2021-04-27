@@ -6,6 +6,7 @@ using HR_Management_System.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -60,31 +61,30 @@ namespace HR_Management_System.Controllers
 // GET: EmployeeController/Create
 public ActionResult Create()
         {
-            return View();
+            var department = _departmentrepo.FindAll();
+            var departmentItems = department.Select(q => new SelectListItem {
+                Text = q.Name,
+                Value = q.Id.ToString()
+            });
+            var model = new EmployeeVM
+            {
+                Department = departmentItems
+            };
+            return View(model);
         }
 
         // POST: EmployeeController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(EmployeeVM model)
+        public ActionResult Create(IFormCollection collection)
         {
             try
             {
-                if (!ModelState.IsValid)
-                {
-                    return View(model);
-                }
-                var employee = _mapper.Map<Employee>(model);
-                var isSuccess = _employeerepo.Create(employee);
-
-                if (!isSuccess)
-                {
-                    ModelState.AddModelError("", "Something Went Wrong...");
-                }
+                
 
                 return RedirectToAction(nameof(Index));
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 return View();
             }
