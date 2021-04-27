@@ -61,14 +61,21 @@ namespace HR_Management_System.Controllers
 // GET: EmployeeController/Create
 public ActionResult Create()
         {
-            var department = _departmentrepo.FindAll();
-            var departmentItems = department.Select(q => new SelectListItem {
+            var department = _departmentrepo.FindAll();           
+            var departmentItems = department.Select(q => new SelectListItem
+            {
+                Text = q.Name,
+                Value = q.Id.ToString()
+            });
+            var relationshiptype = _relationshiptyperepo.FindAll();
+            var relationshiptypeItems = relationshiptype.Select(q => new SelectListItem {
                 Text = q.Name,
                 Value = q.Id.ToString()
             });
             var model = new EmployeeVM
             {
-                Department = departmentItems
+                Department = departmentItems,
+                RelationshipType = relationshiptypeItems
             };
             return View(model);
         }

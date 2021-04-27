@@ -13,7 +13,6 @@ namespace HR_Management_System.Models
         [Required]
         [Display(Name = "First Name")]
         public string FirstName { get; set; }
-        [Required]
         [Display(Name = "Middle Name")]
         public string MiddleName { get; set; }
         [Required]
@@ -59,11 +58,13 @@ namespace HR_Management_System.Models
         [Display(Name = "Department")]
         public int DepartmentId { get; set; }
 
+        [Display(Name = "Name of Institution")]
         public string Education { get; set; }
         public IEnumerable<SelectListItem> Qualification { get; set; }
         [Display(Name = "Qualification Type")]
         public int QualificationId { get; set; }
 
+        [Display(Name = "Next of Kin")]
         public string Emergency { get; set; }
         public IEnumerable<SelectListItem> RelationshipType { get; set; }
         [Display(Name = "Relationship to Employee")]
