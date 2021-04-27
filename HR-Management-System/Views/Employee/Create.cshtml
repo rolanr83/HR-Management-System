@@ -30,9 +30,13 @@
             </div>
             <div class="form-group">
                 <label asp-for="Gender" class="control-label"></label>
-                <input asp-for="Gender" class="form-control" />
-                <span asp-validation-for="Gender" class="text-danger"></span>
+                <select asp-for="Gender" class="form-control" asp-items="ViewBag.QualificationId">
+                    <option selected>Select Item</option>
+                    <option value="1">MALE</option>
+                    <option value="2">FEMALE</option>
+                </select>
             </div>
+            <span asp-validation-for="Gender" class="text-danger"></span>
             <div class="form-group">
                 <label asp-for="TRN" class="control-label"></label>
                 <input asp-for="TRN" class="form-control" />
@@ -50,8 +54,12 @@
             </div>
             <div class="form-group">
                 <label asp-for="MaritalStatus" class="control-label"></label>
-                <input asp-for="MaritalStatus" class="form-control" />
-                <span asp-validation-for="MaritalStatus" class="text-danger"></span>
+                <select asp-for="MaritalStatus" class="form-control" asp-items="ViewBag.QualificationId">
+                    <option selected>Select Item</option>
+                    <option value="1">MARRIED</option>
+                    <option value="2">SINGLE</option>
+                    <option value="2">DIVORCED</option>
+                </select>
             </div>
             <div class="form-group">
                 <label asp-for="Address1" class="control-label"></label>
@@ -70,13 +78,21 @@
             </div>
             <div class="form-group">
                 <label asp-for="Parish" class="control-label"></label>
-                <input asp-for="Parish" class="form-control" />
-                <span asp-validation-for="Parish" class="text-danger"></span>
+                <select asp-for="Parish" class="form-control" asp-items="ViewBag.QualificationId">
+                    <option selected>Select Item</option>
+                    <option value="1">KINGSTON</option>
+                    <option value="2">ST. ANN</option>
+                    <option value="2">ST. JAMES</option>
+                </select>
             </div>
             <div class="form-group">
                 <label asp-for="Country" class="control-label"></label>
-                <input asp-for="Country" class="form-control" />
-                <span asp-validation-for="Country" class="text-danger"></span>
+                <select asp-for="Country" class="form-control" asp-items="ViewBag.QualificationId">
+                    <option selected>Select Item</option>
+                    <option value="1">JAMAICA</option>
+                    <option value="2">USA</option>
+                    <option value="2">CANADA</option>
+                </select>
             </div>
             <div class="form-group">
                 <label asp-for="HomeNumber" class="control-label"></label>
@@ -95,8 +111,11 @@
             </div>
             <div class="form-group">
                 <label asp-for="EmployeementStatus" class="control-label"></label>
-                <input asp-for="EmployeementStatus" class="form-control" />
-                <span asp-validation-for="EmployeementStatus" class="text-danger"></span>
+                <select asp-for="EmployeementStatus" class="form-control" asp-items="ViewBag.QualificationId">
+                    <option selected>Select Item</option>
+                    <option value="1">PERMANENT</option>
+                    <option value="2">CONTRACT</option>
+                </select>
             </div>
             <div class="form-group">
                 <label asp-for="Post" class="control-label"></label>
@@ -105,7 +124,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="DepartmentId" class="control-label"></label>
-                @Html.DropDownListFor(q => q.DepartmentId, new SelectList(Model.Department, "Value", "Text"), "Select department", new { @class  = "form-control" } )
+                @Html.DropDownListFor(q => q.DepartmentId, new SelectList(Model.Department, "Value", "Text"), "Select department", new { @class = "form-control" })
                 <span asp-validation-for="Education" class="text-danger"></span>
                 @*<select asp-for="DepartmentId" class="form-control" asp-items="ViewBag.DepartmentId"></select>*@
             </div>
@@ -116,7 +135,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="QualificationId" class="control-label"></label>
-                <select asp-for="QualificationId" class ="form-control" asp-items="ViewBag.QualificationId"></select>
+                <select asp-for="QualificationId" class="form-control" asp-items="ViewBag.QualificationId"></select>
             </div>
             <div class="form-group">
                 <label asp-for="Emergency" class="control-label"></label>
@@ -125,7 +144,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="RelaionshipTypeId" class="control-label"></label>
-                <select asp-for="RelaionshipTypeId" class ="form-control" asp-items="ViewBag.RelaionshipTypeId"></select>
+                <select asp-for="RelaionshipTypeId" class="form-control" asp-items="ViewBag.RelaionshipTypeId"></select>
             </div>
             <div class="form-group">
                 <label asp-for="StartDate" class="control-label"></label>
