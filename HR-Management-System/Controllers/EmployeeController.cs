@@ -80,9 +80,9 @@ public ActionResult Create()
             });
             var model = new EmployeeVM
             {
-                Department = departmentItems,
-                RelationshipType = relationshiptypeItems,
-                Qualification = qualificationItems
+                Departments = departmentItems,
+                RelationshipTypes = relationshiptypeItems,
+                Qualifications = qualificationItems
             };
             return View(model);
         }
@@ -113,9 +113,9 @@ public ActionResult Create()
                     Text = q.Name,
                     Value = q.Id.ToString()
                 });
-                model.Department = departmentItems;
-                model.RelationshipType = relationshiptypeItems;
-                model.Qualification = qualificationItems;
+                model.Departments = departmentItems;
+                model.RelationshipTypes = relationshiptypeItems;
+                model.Qualifications = qualificationItems;
 
                 if (!ModelState.IsValid)
                 {
@@ -131,9 +131,9 @@ public ActionResult Create()
 
                 var employeeModel = new EmployeeVM
                 {
-                    Department = departmentItems,
-                    RelationshipType = relationshiptypeItems,
-                    Qualification = qualificationItems
+                    Departments = departmentItems,
+                    RelationshipTypes = relationshiptypeItems,
+                    Qualifications = qualificationItems
                 };
                 return RedirectToAction(nameof(Index));
             }

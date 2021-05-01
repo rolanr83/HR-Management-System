@@ -54,19 +54,19 @@ namespace HR_Management_System.Models
        
         [Required]
         public string Post { get; set; }
-        public IEnumerable<SelectListItem> Department { get; set; }
+        public IEnumerable<SelectListItem> Departments { get; set; }
         [Display(Name = "Department")]
         public int DepartmentId { get; set; }
 
         [Display(Name = "Name of Institution")]
         public string Education { get; set; }
-        public IEnumerable<SelectListItem> Qualification { get; set; }
+        public IEnumerable<SelectListItem> Qualifications { get; set; }
         [Display(Name = "Qualification Type")]
         public int QualificationId { get; set; }
 
         [Display(Name = "Next of Kin")]
         public string Emergency { get; set; }
-        public IEnumerable<SelectListItem> RelationshipType { get; set; }
+        public IEnumerable<SelectListItem> RelationshipTypes { get; set; }
         [Display(Name = "Relationship to Next of Kin ")]
         public int RelaionshipTypeId { get; set; }
         
