@@ -164,18 +164,46 @@ public ActionResult Create()
         {
             try
             {
+                var department = _departmentrepo.FindAll();
+                var departmentItems = department.Select(q => new SelectListItem
+                {
+                    Text = q.Name,
+                    Value = q.Id.ToString()
+                });
+                var relationshiptype = _relationshiptyperepo.FindAll();
+                var relationshiptypeItems = relationshiptype.Select(q => new SelectListItem
+                {
+                    Text = q.Name,
+                    Value = q.Id.ToString()
+                });
+                var qualification = _qualificationrepo.FindAll();
+                var qualificationItems = qualification.Select(q => new SelectListItem
+                {
+                    Text = q.Name,
+                    Value = q.Id.ToString()
+                });
+                model.Departments = departmentItems;
+                model.RelationshipTypes = relationshiptypeItems;
+                model.Qualifications = qualificationItems;
+
                 if (!ModelState.IsValid)
                 {
                     return View(model);
                 }
                 var employee = _mapper.Map<Employee>(model);
-                var isSuccess = _employeerepo.Update(employee);
+                var isSuccess = _employeerepo.Create(employee);
+
                 if (!isSuccess)
                 {
                     ModelState.AddModelError("", "Something Went Wrong...");
-                    return View(model);
                 }
 
+                var employeeModel = new EmployeeVM
+                {
+                    Departments = departmentItems,
+                    RelationshipTypes = relationshiptypeItems,
+                    Qualifications = qualificationItems
+                };
                 return RedirectToAction(nameof(Index));
             }
             catch
