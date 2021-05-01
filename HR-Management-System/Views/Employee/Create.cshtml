@@ -5,9 +5,8 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Create</h1>
+<h1>Create Employee</h1>
 
-<h4>Employee</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -126,7 +125,6 @@
                 <label asp-for="DepartmentId" class="control-label"></label>
                 @Html.DropDownListFor(q => q.DepartmentId, new SelectList(Model.Departments, "Value", "Text"), "Select department", new { @class = "form-control" })
                 <span asp-validation-for="DepartmentId" class="text-danger"></span>
-                @*<select asp-for="DepartmentId" class="form-control" asp-items="ViewBag.DepartmentId"></select>*@
             </div>
             <div class="form-group">
                 <label asp-for="Education" class="control-label"></label>
@@ -137,7 +135,6 @@
                 <label asp-for="QualificationId" class="control-label"></label>
                 @Html.DropDownListFor(q => q.QualificationId, new SelectList(Model.Qualifications, "Value", "Text"), "Select department", new { @class = "form-control" })
                 <span asp-validation-for="QualificationId" class="text-danger"></span>
-                @*<select asp-for="QualificationId" class="form-control" asp-items="ViewBag.QualificationId"></select>*@
             </div>
             <div class="form-group">
                 <label asp-for="Emergency" class="control-label"></label>
@@ -148,7 +145,6 @@
                 <label asp-for="RelaionshipTypeId" class="control-label"></label>
                 @Html.DropDownListFor(q => q.RelaionshipTypeId, new SelectList(Model.RelationshipTypes, "Value", "Text"), "Select Relationship", new { @class = "form-control" })
                 <span asp-validation-for="RelaionshipTypeId" class="text-danger"></span>
-                @*<select asp-for="RelaionshipTypeId" class="form-control" asp-items="ViewBag.RelaionshipTypeId"></select>*@
             </div>
             <div class="form-group">
                 <label asp-for="StartDate" class="control-label"></label>
