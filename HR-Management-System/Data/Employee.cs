@@ -41,9 +41,7 @@ namespace HR_Management_System.Data
         public Qualification Qualification { get; set; }
         public int QualificationId { get; set; }
         public string Emergency { get; set; }
-        [ForeignKey("RelationshipTypeId")]
-        public RelationshipType RelationshipType { get; set; }
-        public int RelationshipTypeId { get; set; }
+        
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
                 

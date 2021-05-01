@@ -16,15 +16,15 @@
             <th>
                 @Html.DisplayNameFor(model => model.FirstName)
             </th>
-            @*<th>
+            <th>
             @Html.DisplayNameFor(model => model.MiddleName)
-        </th>*@
+        </th>
             <th>
                 @Html.DisplayNameFor(model => model.LastName)
             </th>
-            @*<th>
+            <th>
             @Html.DisplayNameFor(model => model.Gender)
-        </th>*@
+        </th>
             <th>
                 @Html.DisplayNameFor(model => model.TRN)
             </th>
@@ -43,18 +43,18 @@
             <th>
                 @Html.DisplayNameFor(model => model.Address2)
             </th>
-            @*<th>
+            <th>
             @Html.DisplayNameFor(model => model.PostalCode)
-        </th>*@
+        </th>
             <th>
                 @Html.DisplayNameFor(model => model.Parish)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Country)
             </th>
-            @*<th>
+            <th>
             @Html.DisplayNameFor(model => model.HomeNumber)
-        </th>*@
+        </th>
             <th>
                 @Html.DisplayNameFor(model => model.MobileNumber)
             </th>
@@ -76,9 +76,9 @@
             <th>
                 @Html.DisplayNameFor(model => model.EndDate)
             </th>
-            @*<th>
+            <th>
             @Html.DisplayNameFor(model => model.Education)
-        </th>*@
+        </th>
             @*<th>
             @Html.DisplayNameFor(model => model.RelaionshipType)
         </th>*@
@@ -149,14 +149,14 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.EndDate)
                 </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Qualifications)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Departments)
+                </td>
                 @*<td>
-                    @Html.DisplayFor(modelItem => item.Qualification.Id)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Department.Id)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.EmergencyContact.Id)
+                    @Html.DisplayFor(modelItem => item.EmergencyContacts.Id)
                 </td>*@
                 <td>
                     <a asp-action="Edit" class="btn btn-warning" asp-route-id="@item.Id">
