@@ -27,7 +27,7 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="">Manage Employee Records</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Employee" asp-action="">Manage Employee Records</a>
                         </li>
                         @if (SignInManager.IsSignedIn(User))
                         {
@@ -40,11 +40,8 @@
                                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenueLink">
                                         <a class="dropdown-item text-dark" asp-controller="Department" asp-action="Index">Departments</a>
                                         <a class="dropdown-item text-dark" asp-controller="Qualification" asp-action="Index">Qualification</a>
-                                        <a class="dropdown-item text-dark" asp-controller="RelationshipType" asp-action="Index">RelationshipType</a>
-                                        <a class="dropdown-item text-dark" asp-controller="Employee" asp-action="Index">Employees</a>
-                                            @*<a class="dropdown-item text-dark" href="#">Edit Employee</a>
-                                             <a class="dropdown-item text-dark" href="#">Remove Record</a>
-                                             <a class="dropdown-item text-dark" href="#">View Employees</a>*@
+                                        <a class="dropdown-item text-dark" asp-controller="RelationshipType" asp-action="Index">Relationship Type</a>
+                                        <a class="dropdown-item text-dark" asp-controller="Employee" asp-action="Index">Add Employees</a>                 
                                     </div>
                                 </li>
                             }

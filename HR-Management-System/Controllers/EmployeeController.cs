@@ -92,8 +92,31 @@ public ActionResult Create()
         [ValidateAntiForgeryToken]
         public ActionResult Create(EmployeeVM model)
         {
+
             try
             {
+                var department = _departmentrepo.FindAll();
+                var departmentItems = department.Select(q => new SelectListItem
+                {
+                    Text = q.Name,
+                    Value = q.Id.ToString()
+                });
+                var relationshiptype = _relationshiptyperepo.FindAll();
+                var relationshiptypeItems = relationshiptype.Select(q => new SelectListItem
+                {
+                    Text = q.Name,
+                    Value = q.Id.ToString()
+                });
+                var qualification = _qualificationrepo.FindAll();
+                var qualificationItems = qualification.Select(q => new SelectListItem
+                {
+                    Text = q.Name,
+                    Value = q.Id.ToString()
+                });
+                model.Department = departmentItems;
+                model.RelationshipType = relationshiptypeItems;
+                model.Qualification = qualificationItems;
+
                 if (!ModelState.IsValid)
                 {
                     return View(model);
@@ -106,11 +129,17 @@ public ActionResult Create()
                     ModelState.AddModelError("", "Something Went Wrong...");
                 }
 
+                var employeeModel = new EmployeeVM
+                {
+                    Department = departmentItems,
+                    RelationshipType = relationshiptypeItems,
+                    Qualification = qualificationItems
+                };
                 return RedirectToAction(nameof(Index));
             }
             catch (Exception ex)
             {
-                return View();
+                return View(model);
             }
         }
 

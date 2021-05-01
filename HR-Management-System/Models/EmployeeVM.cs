@@ -67,7 +67,7 @@ namespace HR_Management_System.Models
         [Display(Name = "Next of Kin")]
         public string Emergency { get; set; }
         public IEnumerable<SelectListItem> RelationshipType { get; set; }
-        [Display(Name = "Relationship to Employee")]
+        [Display(Name = "Relationship to Next of Kin ")]
         public int RelaionshipTypeId { get; set; }
         
 
