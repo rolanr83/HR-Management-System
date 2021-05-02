@@ -34,7 +34,7 @@ namespace HR_Management_System.Repository
 
         public Employee FindById(int id)
         {
-            return _db.Employees.Find();
+            return _db.Employees.Find(id);
         }
 
         public bool isExists(int id)

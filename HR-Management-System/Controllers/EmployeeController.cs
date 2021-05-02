@@ -191,7 +191,7 @@ public ActionResult Create()
                     return View(model);
                 }
                 var employee = _mapper.Map<Employee>(model);
-                var isSuccess = _employeerepo.Create(employee);
+                var isSuccess = _employeerepo.Update(employee);
 
                 if (!isSuccess)
                 {
