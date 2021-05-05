@@ -4,19 +4,15 @@
     ViewData["Title"] = "Edit";
 }
 
-<h1>Edit</h1>
+<h1>Edit Employee</h1>
 
-<h4>EmployeeVM</h4>
+
 <hr />
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Id" class="control-label"></label>
-                <input asp-for="Id" class="form-control" />
-                <span asp-validation-for="Id" class="text-danger"></span>
-            </div>
+            <input type="hidden" asp-for="Id" />
             <div class="form-group">
                 <label asp-for="FirstName" class="control-label"></label>
                 <input asp-for="FirstName" class="form-control" />
@@ -34,8 +30,11 @@
             </div>
             <div class="form-group">
                 <label asp-for="Gender" class="control-label"></label>
-                <input asp-for="Gender" class="form-control" />
-                <span asp-validation-for="Gender" class="text-danger"></span>
+                <select asp-for="Gender" class="form-control" asp-items="ViewBag.GenderId">
+                    <option selected>Select Item</option>
+                    <option>MALE</option>
+                    <option>FEMALE</option>
+                </select>
             </div>
             <div class="form-group">
                 <label asp-for="TRN" class="control-label"></label>
@@ -54,8 +53,12 @@
             </div>
             <div class="form-group">
                 <label asp-for="MaritalStatus" class="control-label"></label>
-                <input asp-for="MaritalStatus" class="form-control" />
-                <span asp-validation-for="MaritalStatus" class="text-danger"></span>
+                <select asp-for="MaritalStatus" class="form-control" asp-items="ViewBag.MaritalStatusId">
+                    <option selected>Select Item</option>
+                    <option>MARRIED</option>
+                    <option>SINGLE</option>
+                    <option>DIVORCED</option>
+                </select>
             </div>
             <div class="form-group">
                 <label asp-for="Address1" class="control-label"></label>
@@ -74,13 +77,21 @@
             </div>
             <div class="form-group">
                 <label asp-for="Parish" class="control-label"></label>
-                <input asp-for="Parish" class="form-control" />
-                <span asp-validation-for="Parish" class="text-danger"></span>
+                <select asp-for="Parish" class="form-control" asp-items="ViewBag.ParishId">
+                    <option selected>Select Item</option>
+                    <option>KINGSTON</option>
+                    <option>ST. ANN</option>
+                    <option>ST. JAMES</option>
+                </select>
             </div>
             <div class="form-group">
                 <label asp-for="Country" class="control-label"></label>
-                <input asp-for="Country" class="form-control" />
-                <span asp-validation-for="Country" class="text-danger"></span>
+                <select asp-for="Country" class="form-control" asp-items="ViewBag.CountryId">
+                    <option selected>Select Item</option>
+                    <option>JAMAICA</option>
+                    <option>USA</option>
+                    <option>CANADA</option>
+                </select>
             </div>
             <div class="form-group">
                 <label asp-for="HomeNumber" class="control-label"></label>
@@ -99,8 +110,11 @@
             </div>
             <div class="form-group">
                 <label asp-for="EmployeementStatus" class="control-label"></label>
-                <input asp-for="EmployeementStatus" class="form-control" />
-                <span asp-validation-for="EmployeementStatus" class="text-danger"></span>
+                <select asp-for="EmployeementStatus" class="form-control" asp-items="ViewBag.EmployeementStatusId">
+                    <option selected>Select Item</option>
+                    <option>PERMANENT</option>
+                    <option>CONTRACT</option>
+                </select>
             </div>
             <div class="form-group">
                 <label asp-for="Post" class="control-label"></label>
@@ -122,6 +136,7 @@
                 <input asp-for="QualificationId" class="form-control" />
                 <span asp-validation-for="QualificationId" class="text-danger"></span>
             </div>
+
             <div class="form-group">
                 <label asp-for="Emergency" class="control-label"></label>
                 <input asp-for="Emergency" class="form-control" />
