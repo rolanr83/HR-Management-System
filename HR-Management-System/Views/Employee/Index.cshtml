@@ -17,14 +17,14 @@
                 @Html.DisplayNameFor(model => model.FirstName)
             </th>
             <th>
-            @Html.DisplayNameFor(model => model.MiddleName)
-        </th>
+                @Html.DisplayNameFor(model => model.MiddleName)
+            </th>
             <th>
                 @Html.DisplayNameFor(model => model.LastName)
             </th>
             <th>
-            @Html.DisplayNameFor(model => model.Gender)
-        </th>
+                @Html.DisplayNameFor(model => model.Gender)
+            </th>
             <th>
                 @Html.DisplayNameFor(model => model.TRN)
             </th>
@@ -44,8 +44,8 @@
                 @Html.DisplayNameFor(model => model.Address2)
             </th>
             <th>
-            @Html.DisplayNameFor(model => model.PostalCode)
-        </th>
+                @Html.DisplayNameFor(model => model.PostalCode)
+            </th>
             <th>
                 @Html.DisplayNameFor(model => model.Parish)
             </th>
@@ -53,8 +53,8 @@
                 @Html.DisplayNameFor(model => model.Country)
             </th>
             <th>
-            @Html.DisplayNameFor(model => model.HomeNumber)
-        </th>
+                @Html.DisplayNameFor(model => model.HomeNumber)
+            </th>
             <th>
                 @Html.DisplayNameFor(model => model.MobileNumber)
             </th>
@@ -65,10 +65,13 @@
                 @Html.DisplayNameFor(model => model.EmployeementStatus)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Departments)
+                @Html.DisplayNameFor(model => model.DepartmentId)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Post)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Education)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.StartDate)
@@ -76,9 +79,7 @@
             <th>
                 @Html.DisplayNameFor(model => model.EndDate)
             </th>
-            <th>
-            @Html.DisplayNameFor(model => model.Education)
-        </th>
+
             @*<th>
             @Html.DisplayNameFor(model => model.RelaionshipType)
         </th>*@
@@ -141,10 +142,13 @@
                 @Html.DisplayFor(modelItem => item.EmployeementStatus)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Departments)
+                @Html.DisplayFor(modelItem => item.DepartmentId)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Post)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Education)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.StartDate)
@@ -152,9 +156,9 @@
             <td>
                 @Html.DisplayFor(modelItem => item.EndDate)
             </td>
-            <td>
+            @*<td>
                 @Html.DisplayFor(modelItem => item.Qualifications)
-            </td>
+            </td>*@
             @*<td>
             @Html.DisplayFor(modelItem => item.EmergencyContacts.Id)
         </td>*@

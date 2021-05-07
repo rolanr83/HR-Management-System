@@ -58,6 +58,8 @@ namespace HR_Management_System.Models
         [Display(Name = "Department")]
         public int DepartmentId { get; set; }
 
+        //public string DepartmentName { get; set; }
+
         [Display(Name = "Name of Institution")]
         public string Education { get; set; }
         public IEnumerable<SelectListItem> Qualifications { get; set; }

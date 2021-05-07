@@ -53,6 +53,7 @@ namespace HR_Management_System.Controllers
                 return NotFound();
             }
             var Employees = _employeerepo.FindById(id);
+    
             var model = _mapper.Map<EmployeeVM>(Employees);
             return View(model);
         }
