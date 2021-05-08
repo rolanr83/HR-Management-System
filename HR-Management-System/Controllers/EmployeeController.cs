@@ -40,8 +40,11 @@ namespace HR_Management_System.Controllers
         // GET: EmployeeController
         public ActionResult Index()
         {
-            var Employees = _employeerepo.FindAll().ToList();
-            var model = _mapper.Map<List<Employee>, List<EmployeeVM>>(Employees);
+            //var Employees = _employeerepo.FindAll().ToList();
+            var Employees = _employeerepo.FindAll();
+            //var model = _mapper.Map<List<Employee>, List<EmployeeVM>>(Employees);
+            var model = _mapper.Map<List<EmployeeVM>>(Employees);
+            
             return View(model);
         }
 

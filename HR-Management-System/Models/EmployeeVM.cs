@@ -71,11 +71,21 @@ namespace HR_Management_System.Models
         public IEnumerable<SelectListItem> RelationshipTypes { get; set; }
         [Display(Name = "Relationship to Next of Kin ")]
         public int RelaionshipTypeId { get; set; }
-        
+
+        public List<DepartmentVM> departments { get; set; }
+        public List<QualificationVM> qualifications { get; set; }
 
         [Required]
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
+
+        //public class EmployeeViewFunctionVM
+        //{
+        //    public List<DepartmentVM> departments { get; set; }
+        //    public List<QualificationVM> qualifications { get; set; }
+        //    //public List<DepartmentVM> departments { get; set }
+        //}
+
 
     }
 }

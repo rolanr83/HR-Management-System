@@ -15,7 +15,6 @@ namespace HR_Management_System.Mappings
             CreateMap<Department, DepartmentVM>().ReverseMap();
             CreateMap<Qualification, QualificationVM>().ReverseMap();
             CreateMap<RelationshipType, RelationshipTypeVM>().ReverseMap();
-            CreateMap<EmergencyContact, EmergencyContactVM>().ReverseMap();
             CreateMap<Employee, EmployeeVM>().ReverseMap();
         }
     }
