@@ -35,7 +35,7 @@ namespace HR_Management_System.Models
         public string Address1 { get; set; }
         [Display(Name = "Address 2")]
         public string Address2 { get; set; }
-        [Display(Name = "Postal Code")]
+        [Display(Name = "P.O Box")]
         public string PostalCode { get; set; }
         [Required]
         public string Parish { get; set; }
@@ -46,7 +46,7 @@ namespace HR_Management_System.Models
         [Display(Name = "Mobile Number")]
         public string MobileNumber { get; set; }
         [Required]
-        [Display(Name = "Email Address")]      
+        [Display(Name = "Email")]      
         public string EmailAddress { get; set; }
         [Required]
         [Display(Name = "Employeement Status")]
